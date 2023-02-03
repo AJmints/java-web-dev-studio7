@@ -2,11 +2,11 @@ package org.launchcode.studio7;
 
 public abstract class Disc {
 
-    int spinSpeed;
-    String discName;
-    double storageCapacity;
-    String genre;
-    String studio;
+    public int spinSpeed;
+    public String discName;
+    private double storageCapacity;
+    public String genre;
+     public String studio;
 
     public Disc() {
     }
