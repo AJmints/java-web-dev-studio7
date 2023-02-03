@@ -2,7 +2,8 @@ package org.launchcode.studio7;
 
 public abstract class Disc {
 
-    public int spinSpeed;
+    /** spinSpeed should be arraylist with low rpm and high rpm **/
+    private int spinSpeed;
     public String discName;
     private double storageCapacity;
     public String genre;
@@ -23,8 +24,8 @@ public abstract class Disc {
         return spinSpeed;
     }
 
-    public void setSpinSpeed(int spinSpeed) {
-        this.spinSpeed = spinSpeed;
+    public int setSpinSpeed(int spinSpeed) {
+        return spinSpeed;
     }
 
     public String getDiscName() {

@@ -1,39 +1,60 @@
 package org.launchcode.studio7;
 
+import java.util.Scanner;
+
 public class Main {
 
     public static void main(String[] args){
+        Scanner input = new Scanner(System.in);
 
+        MethodCaller.generateCollection();
 
-        DVD movie1 = new DVD(1098, "Die Hard", 2086, "Action", "Gordon Company Silver Pictures", 146, "John McTiernan");
-        DVD movie2 = new DVD(1076, "Scott Pilgrim vs. the World", 2086, "Action", "Universal", 175, "Edgar Wright");
-        DVD movie3 = new DVD(983, "Spirited Away", 2086, "Animation", "Studio Ghibli", 198, "Hayao Miyazaki");
-        DVD movie4 = new DVD(1200, "Avengers: Endgame", 2086, "Action", "Marvel", 298, "Anthony Russo, Joe Russo");
+        /** Let's make a method to try out Comparator **/
+        /** This is the order of items before running the method, sorting in the method, then confirming that things are still sorted after the method has run **/
 
-        CD disc1 = new CD(400, "I'm wide awake, it's morning", 256, "Folk Rock", "", "Bright Eyes");
-        CD disc2 = new CD(378, "Bon Iver", 256, "Folk", "", "Bon Iver");
-        CD disc3 = new CD(329, "Dreaming Tree", 256, "Jam Rock", "", "Dave Matthews Band");
-        CD disc4 = new CD(419, "Whale Song", 256, "Indie Rock", "", "Modest Mouse");
-
-        disc1.addTracks(8);
-        disc2.addTracks(8);
-        disc3.addTracks(8);
-        disc4.addTracks(8);
-
-        Storage.shelf1.add(movie1);
-        Storage.shelf1.add(movie2);
-        Storage.shelf1.add(movie3);
-        Storage.shelf1.add(movie4);
-        Storage.shelf1.add(disc1);
-        Storage.shelf1.add(disc2);
-        Storage.shelf1.add(disc3);
-        Storage.shelf1.add(disc4);
-
-//        CD.getSongTimeDisplay();
-        Storage.getShelfContents();
-        for (Disc item : Storage.shelf1) {
-            System.out.println(item.getSpinSpeed());
+        int j = 1;
+        System.out.println("\nBefore running the Comparator Method\n");
+        for (DVD item : Storage.shelfDVD) {
+            System.out.println(j + ": " + item.getDiscName());
+            j++;
         }
+        j = 1;
+
+        MethodCaller.comparatorTests();
+
+        System.out.println("\nLeft the method, and the DVD ArrayList after running the Comparator Method\n");
+        for (DVD item : Storage.shelfDVD) {
+            System.out.println(j + ": " + item.getDiscName());
+            j++;
+        }
+        j = 1;
+
+
+
+
+
+        /** Unorganized collection of DVDs and CDs **/
+//        Storage.getShelfContents();
+
+        /** Display the RPM of each disc **/
+//        MethodCaller.getAllCollectionSpinSpeed();
+
+        /** Get track details based on album name input **/
+//        MethodCaller.getTrackDetails("Bon Iver");
+
+        /** Get individual disc spin speed based on title of disc input **/
+//        MethodCaller.getDiscSpinSpeed("Die Hard");
+
+
+
+
+
+
+
+
+
+
+
 
 
 

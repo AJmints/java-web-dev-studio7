@@ -4,12 +4,12 @@ import java.util.ArrayList;
 import java.util.HashMap;
 public class CD extends Disc implements OpticalDisc{
 
-    public static ArrayList<HashMap<String, Double>> trackDetails = new ArrayList<>();
+    public ArrayList<HashMap<String, Double>> trackDetails = new ArrayList<>();
 
     public final String artist;
     public double totalTime = 0;
 
-    public CD(ArrayList<HashMap<String, Double>> trackDetails, String artist, double totalTime) {
+    public CD(String artist, double totalTime) {
         this.artist = artist;
         this.totalTime = totalTime;
     }
@@ -27,7 +27,6 @@ public class CD extends Disc implements OpticalDisc{
         for (Disc item : Storage.shelf1) {
             System.out.println(item.getSpinSpeed());
         }
-
 
     }
 
@@ -56,8 +55,10 @@ public class CD extends Disc implements OpticalDisc{
     }
 
     public void addTracks(int total) {
+
         HashMap<String, Double> track = new HashMap<>();
-        /** This is currently deactivated until I decide to make a user input **/
+
+        /** This if statement is currently deactivated until (if) I decide to make a user input **/
         if (false) {
             int totalTracks = total;
             int j = 1;
@@ -102,50 +103,44 @@ public class CD extends Disc implements OpticalDisc{
         trackDetails.add(track7);
         trackDetails.add(track8);
 
+
     }
 
-    public static void getSongTimeDisplay() {
+    public void getSongTimeDisplay() {
 
         /** this is the display get Song name and length method. **/
         /** this is the display get Song name and length method. **/
         /** this is the display get Song name and length method. **/
 
-        for (HashMap<String, Double> item : trackDetails) {
-            String str = "";
-            Double dub = 0.0;
-            ArrayList<String> maybe = new ArrayList<>();
-            ArrayList<Double> maybe2 = new ArrayList<>();
+        int j = 0;
+        for (HashMap<String, Double> item : this.trackDetails) {
 
-            for (String key : item.keySet()) {
-                str = key;
-                maybe.add(key);
-//                System.out.println(str);
-            }
-
-            for (Double key : item.values()) {
-                dub = key;
-                maybe2.add(key);
-//                System.out.println(dub);
-            }
-
+            ArrayList<String> maybe = new ArrayList<>(item.keySet());
+            ArrayList<Double> maybe2 = new ArrayList<>(item.values());
 
             for (int i = 0; i < maybe.size(); i++) {
-                System.out.println(maybe.get(i) + " : " + maybe2.get(i));
+                System.out.println("Track " + j + ": " + maybe.get(i) + " : " + maybe2.get(i));
+                j++;
             }
-
-
-
-
         }
-
         System.out.println("\nThese are the songs in the totalTracks ArrayList");
-
-
-
     }
 
 
+    public double getCDTotalTime() {
+        Double total = 0.0;
+        ArrayList<Double> maybe2 = new ArrayList<>();
 
+        for (HashMap<String, Double> item : this.trackDetails) {
+            maybe2.addAll(item.values());
+        }
+
+        for (int i = 0; i < maybe2.size(); i++) {
+                total += maybe2.get(i);
+        }
+
+        return total;
+    }
 
 
 }
