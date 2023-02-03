@@ -1,10 +1,60 @@
 package org.launchcode.studio7;
 
-public class DVD {
+public class DVD extends Disc implements OpticalDisc{
 
-    // TODO: Implement your custom interface.
+    double totalTime;
+    String director;
 
-    // TODO: Determine which fields, methods, and constructors can be extended from the base class and which ones
-    //  need to be declared separately.
+    public DVD(double totalTime, String director) {
+        this.totalTime = totalTime;
+        this.director = director;
+    }
+
+    public DVD(int spinSpeed, String discName, double storageCapacity, String genre, String studio, double totalTime, String director) {
+        super(spinSpeed, discName, storageCapacity, genre, studio);
+        this.totalTime = totalTime;
+        this.director = director;
+    }
+
+    public double getTotalTime() {
+        return totalTime;
+    }
+
+    public void setTotalTime(double totalTime) {
+        this.totalTime = totalTime;
+    }
+
+    public String getDirector() {
+        return director;
+    }
+
+    public void setDirector(String director) {
+        this.director = director;
+    }
+
+    @Override
+    public void spinDisc() {
+
+    }
+
+    @Override
+    public void storeData() {
+
+    }
+
+    @Override
+    public void laserWriteDisc() {
+
+    }
+
+    @Override
+    public void laserReadDisc() {
+
+    }
+
+    @Override
+    public void loadData() {
+
+    }
 
 }
