@@ -9,8 +9,10 @@ import java.util.function.ToIntFunction;
 public class CDComparator implements Comparator<CD> {
     @Override
     public int compare(CD o1, CD o2) {
-        return 0;
+        return o1.discName.compareTo(o2.discName);
     }
+
+
 
     @Override
     public Comparator<CD> thenComparingInt(ToIntFunction<? super CD> keyExtractor) {

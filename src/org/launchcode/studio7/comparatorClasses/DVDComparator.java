@@ -9,7 +9,13 @@ import java.util.function.ToIntFunction;
 public class DVDComparator implements Comparator<DVD> {
     @Override
     public int compare(DVD o1, DVD o2) {
-        return o1.getDiscName().compareTo(o2.getDiscName());
+        if (o1.getTotalTime() - o2.getTotalTime() < 0) {
+            return -1;
+        } else if (o1.getTotalTime() - o2.getTotalTime() > 0) {
+            return 1;
+        } else {
+            return 0;
+        }
     }
 
     @Override
